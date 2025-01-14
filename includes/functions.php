@@ -24,10 +24,10 @@ if ( ! function_exists( 'patterns_bakery_get_recommended_plugins' ) ) :
 	function patterns_bakery_get_recommended_plugins() {
 		$plugins = array(
 			array(
-				'name'   => esc_html__( 'Advanced Import', 'patterns-bakery' ),
-				'slug'   => 'advanced-import',
-				'plugin' => 'advanced-import/advanced-import.php',
-				'url'    => 'https://wordpress.org/plugins/advanced-import/',
+				'name'   => esc_html__( 'Advanced Import', 'patterns-bakery' ), // The plugin name.
+				'slug'   => 'advanced-import', // The plugin slug (eg: gutentor is the plugin slug https://wordpress.org/plugins/gutentor).
+				'plugin' => 'advanced-import/advanced-import.php', // The plugin folder and main file.
+				'url'    => 'https://wordpress.org/plugins/advanced-import/', // The plugin url.
 			),
 		);
 
@@ -75,6 +75,7 @@ if ( ! function_exists( 'patterns_bakery_install_plugin' ) ) {
 		$plugin = sanitize_text_field( $plugin_info['plugin'] );
 		$source = isset( $plugin_info['source'] ) ? esc_url_raw( $plugin_info['source'] ) : '';
 
+		include_once ABSPATH . 'wp-admin/includes/file.php';
 		include_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
 		include_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 		include_once ABSPATH . 'wp-admin/includes/plugin.php';
